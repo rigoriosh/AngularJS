@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyFirstApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controller</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="FirsController">
+    <input type="text" ng-model="nombre">
+    {{"Hola " + nombre}}
+    
+    <div>
+        <label for="Newcoment">Add comment</label>
+        <input type="text" ng-model="nuevoComentario.comentario">
+    </div>
+    <div>
+        <label for="NewcomentAutor">Autor</label>
+        <input type="text" ng-model="nuevoComentario.autor">
+    </div>
+    <button ng-click="agregarCOmentario()">Agregar comentario</button>
+
+    <h3>Comentarios</h3>
+    <ul>
+        <li ng-repeat="item in comentarios track by $index">
+            {{$index + 1}} - {{item.comentario}} <strong>{{item.autor}}</strong>
+        </li>
+    </ul>
+</body>
+</html>

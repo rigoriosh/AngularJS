@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="toDoList">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Http</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="angular-local-storage.min.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="ToDoListController">
+
+    
+    <ul>
+        <li ng-repeat="item in toDo track by $index">
+            {{item.descripcion}} - {{item.fecha}}
+        </li>
+    </ul>
+    <form ng-submit="addActividad()">
+        <input type="text" ng-model="newAct.descripcion">
+        <input type="datetime-local" ng-model="newAct.fecha">
+        <button type="submit">Guardar actividad</button>
+    </form>
+</body>
+</html>
