@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainModule">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="myController">
+
+    <h1>{{nombre}}</h1>
+    <button id="btnTest">Do click</button>
+    <button ng-click="nombre = 'other way to handle events'">Do way 2</button>
+</body>
+</html>

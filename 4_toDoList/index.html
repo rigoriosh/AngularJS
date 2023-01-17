@@ -14,7 +14,7 @@
     
     <ul>
         <li ng-repeat="item in toDo track by $index">
-            {{item.descripcion}} - {{item.fecha}}
+            {{item.descripcion}} - {{item.fecha | date:short}}
         </li>
     </ul>
     <form ng-submit="addActividad()">
@@ -22,5 +22,11 @@
         <input type="datetime-local" ng-model="newAct.fecha">
         <button type="submit">Guardar actividad</button>
     </form>
+    <br>
+    <button ng-click="cleanToDoList()">Limpiar listado</button>
+    <input type="text" ng-model="testing">
+
+    <!-- <input type="text" ng-model="testing"> -->
+
 </body>
 </html>

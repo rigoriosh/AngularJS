@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyFirstApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hideAndShow</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="myController">
+
+    <button ng-click="addPost()">Add Post</button>
+    
+    <ul>
+        <li ng-repeat="item in posts track by $index">
+            <h3>{{item.title}}</h3>
+            <p>
+                {{item.body}}
+            </p>
+        </li>
+    </ul>
+</body>
+</html>
