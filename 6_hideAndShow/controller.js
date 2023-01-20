@@ -5,13 +5,16 @@
 
     app.controller("myController", function ($scope, $http) {
         console.log($scope)
-       
+        $scope.posts = [];
+        $scope.loading = true;
         $http.get("https://jsonplaceholder.typicode.com/posts")
             .then(function ({data}){
                 console.log(data)
                 $scope.posts = data
+                $scope.loading = false;
             },function (error){
                 console.log(error)
+                $scope.loading = false;
             });
 
           $scope.addPost = function () {

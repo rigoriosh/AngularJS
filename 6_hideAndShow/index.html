@@ -5,20 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hideAndShow</title>
+    <style>
+        .animated{
+            opacity: 1;
+            max-height: auto;
+            overflow: hidden;
+            transition: all 4s;
+        }
+        .animated.ng-hide{
+            opacity: 0;
+            max-height: 0px !important;
+            display: block !important;
+        }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="controller.js"></script>
 </head>
 <body ng-controller="myController">
 
-    <button ng-click="addPost()">Add Post</button>
-    
-    <ul>
-        <li ng-repeat="item in posts track by $index">
-            <h3>{{item.title}}</h3>
-            <p>
-                {{item.body}}
-            </p>
-        </li>
-    </ul>
+    <div ng-show="loading">Loading...</div>
+    <div ng-show="!loading && posts.length == 0">Sin data en el servicio</div>
+    <div ng-show="posts.length > 0" style="display: flex; flex-direction: row;">
+        <div>
+            <button ng-click="addPost()">Add Post</button>
+            <ul ng-show="posts.length != 0" class="animated">
+                <li ng-repeat="item in posts track by $index">
+                    <h3>{{item.title}}</h3>
+                    <p>
+                        {{item.body}}
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul ng-hide="posts.length == 0" class="animated">
+                <li ng-repeat="item in posts track by $index">
+                    <h3>{{item.title}}</h3>
+                    <p>
+                        {{item.body}}
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
